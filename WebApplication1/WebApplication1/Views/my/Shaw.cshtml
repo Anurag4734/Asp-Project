@@ -2,11 +2,13 @@
 @{
     ViewBag.Title = "View";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int sn = 0;
 }
 
 <h2>My List</h2>
 <table class="table" border="1">
     <tr>
+        <th>SN</th>
         <th>E-id</th>
         <th>E-name</th>
         <th>E-address</th>
@@ -16,6 +18,7 @@
     @foreach (var data in Model)
     {
 <tr>
+    <td>@(++sn)</td>
     <td>@data.eid</td>
     <td>@data.ename</td>
     <td>@data.eaddress</td>
