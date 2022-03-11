@@ -1,15 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="myModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="myEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="myDetails" EntityType="myModel.myDetail" />
+    <EntitySet Name="students" EntityType="myModel.student" />
+  </EntityContainer>
   <EntityType Name="myDetail">
     <Key>
       <PropertyRef Name="eid" />
     </Key>
     <Property Name="eid" Type="Int32" Nullable="false" />
-    <Property Name="ename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ename" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="eaddress" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="contact" Type="Int64" />
   </EntityType>
-  <EntityContainer Name="myEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="myDetails" EntityType="Self.myDetail" />
-  </EntityContainer>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="sid" />
+    </Key>
+    <Property Name="sid" Type="Int32" Nullable="false" />
+    <Property Name="sname" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="saddress" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="contact" Type="Int64" />
+  </EntityType>
 </Schema>

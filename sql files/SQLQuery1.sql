@@ -8,9 +8,22 @@ eaddress varchar(30),
 contact bigint
 );
 
-drop table myDetails;
+create table student(
+sid int primary key,
+sname varchar (20) not null,
+saddress varchar(30),
+contact bigint
+);
 
-insert into mydetails values(1,'Anurag','baneshwor',9999999999);
-insert into mydetails values(2,'Rohan','NayaBasti',8888888888);
-insert into mydetails values(3,'Prashansa','Gothatar',7777777777);
-insert into mydetails values(4,'Kushal','Jyatha',6666666666);
+drop table student;
+
+insert into myDetails values(1,'Anurag','Baneshwor',9999999999);
+insert into myDetails values(2,'Rohan','NayaBasti',8888888888);
+insert into myDetails values(3,'Prashansa','Gothatar',7777777777);
+insert into myDetails values(4,'Kushal','Jyatha',6666666666);
+
+insert into student values(1,'Anurag','Baneshwor',9999999999);
+insert into student values(2,'Rohan','NayaBasti',8888888888);
+insert into student values(3,'Prashansa','Gothatar',7777777777);
+insert into student values(4,'Kushal','Jyatha',6666666666);
+select * from student;

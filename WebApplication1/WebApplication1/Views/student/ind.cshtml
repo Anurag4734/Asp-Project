@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int sn = 0;
+}
+
+<h2>student</h2>
+<table class="table" border="1">
+    <tr>
+        <th>SN</th>
+        <th>S-id</th>
+        <th>S-name</th>
+        <th>S-address</th>
+        <th>Contact</th>
+    </tr>
+
+    @foreach (var data in Model)
+    {
+        <tr>
+            <td>@(++sn)</td>
+            <td>@data.sid</td>
+            <td>@data.sname</td>
+            <td>@data.saddress</td>
+            <td>@data.contact</td>
+        </tr>
+    }
+</table>

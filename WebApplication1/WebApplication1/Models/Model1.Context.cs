@@ -26,5 +26,6 @@ namespace WebApplication1.Models
         }
     
         public virtual DbSet<myDetail> myDetails { get; set; }
+        public virtual DbSet<student> students { get; set; }
     }
 }

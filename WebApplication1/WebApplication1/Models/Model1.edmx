@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="myModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="myModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="myDetails">
           <Key>
             <PropertyRef Name="eid" />
@@ -14,27 +14,46 @@
           <Property Name="eaddress" Type="varchar" MaxLength="30" />
           <Property Name="contact" Type="bigint" />
         </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="int" Nullable="false" />
+          <Property Name="sname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="saddress" Type="varchar" MaxLength="30" />
+          <Property Name="contact" Type="bigint" />
+        </EntityType>
         <EntityContainer Name="myModelStoreContainer">
           <EntitySet Name="myDetails" EntityType="Self.myDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="myModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="myEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="myDetails" EntityType="myModel.myDetail" />
+          <EntitySet Name="students" EntityType="myModel.student" />
+        </EntityContainer>
         <EntityType Name="myDetail">
           <Key>
             <PropertyRef Name="eid" />
           </Key>
           <Property Name="eid" Type="Int32" Nullable="false" />
-          <Property Name="ename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ename" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="eaddress" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="contact" Type="Int64" />
         </EntityType>
-        <EntityContainer Name="myEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="myDetails" EntityType="Self.myDetail" />
-        </EntityContainer>
-      </Schema>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="Int32" Nullable="false" />
+          <Property Name="sname" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="saddress" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="contact" Type="Int64" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -43,10 +62,20 @@
           <EntitySetMapping Name="myDetails">
             <EntityTypeMapping TypeName="myModel.myDetail">
               <MappingFragment StoreEntitySet="myDetails">
-                <ScalarProperty Name="eid" ColumnName="eid" />
-                <ScalarProperty Name="ename" ColumnName="ename" />
-                <ScalarProperty Name="eaddress" ColumnName="eaddress" />
                 <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="eaddress" ColumnName="eaddress" />
+                <ScalarProperty Name="ename" ColumnName="ename" />
+                <ScalarProperty Name="eid" ColumnName="eid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="students">
+            <EntityTypeMapping TypeName="myModel.student">
+              <MappingFragment StoreEntitySet="student">
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="saddress" ColumnName="saddress" />
+                <ScalarProperty Name="sname" ColumnName="sname" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

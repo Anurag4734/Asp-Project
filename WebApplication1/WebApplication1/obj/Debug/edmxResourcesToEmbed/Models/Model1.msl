@@ -4,10 +4,20 @@
     <EntitySetMapping Name="myDetails">
       <EntityTypeMapping TypeName="myModel.myDetail">
         <MappingFragment StoreEntitySet="myDetails">
-          <ScalarProperty Name="eid" ColumnName="eid" />
-          <ScalarProperty Name="ename" ColumnName="ename" />
-          <ScalarProperty Name="eaddress" ColumnName="eaddress" />
           <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="eaddress" ColumnName="eaddress" />
+          <ScalarProperty Name="ename" ColumnName="ename" />
+          <ScalarProperty Name="eid" ColumnName="eid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="students">
+      <EntityTypeMapping TypeName="myModel.student">
+        <MappingFragment StoreEntitySet="student">
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="saddress" ColumnName="saddress" />
+          <ScalarProperty Name="sname" ColumnName="sname" />
+          <ScalarProperty Name="sid" ColumnName="sid" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
