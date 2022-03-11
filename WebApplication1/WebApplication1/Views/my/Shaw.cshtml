@@ -1,8 +1,27 @@
-﻿
+﻿@model List<WebApplication1.Models.myDetail>
 @{
     ViewBag.Title = "View";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2>My List</h2>
+<table class="table" border="1">
+    <tr>
+        <th>E-id</th>
+        <th>E-name</th>
+        <th>E-address</th>
+        <th>Contact</th>
+    </tr>
+
+    @foreach (var data in Model)
+    {
+<tr>
+    <td>@data.eid</td>
+    <td>@data.ename</td>
+    <td>@data.eaddress</td>
+    <td>@data.contact</td>
+</tr>
+    }
+</table>
 <h2>View What you want.</h2>
 
