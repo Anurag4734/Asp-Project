@@ -14,7 +14,19 @@ namespace WebApplication1.Controllers
         public ActionResult Index()
         {
             List<student> data = db.students.ToList();
-            return View("ind",data);
+            return View(data);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+        public ActionResult SaveData(student student)
+        {
+            db.students.Add(student);
+            db.SaveChanges();
+            return RedirectToAction("Create");
+        }
+
     }
 }

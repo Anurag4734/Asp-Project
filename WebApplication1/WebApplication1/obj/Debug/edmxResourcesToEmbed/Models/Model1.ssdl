@@ -13,7 +13,7 @@
     <Key>
       <PropertyRef Name="sid" />
     </Key>
-    <Property Name="sid" Type="int" Nullable="false" />
+    <Property Name="sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="sname" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="saddress" Type="varchar" MaxLength="30" />
     <Property Name="contact" Type="bigint" />
