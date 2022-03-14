@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("UpdateData", "student"))
+{
+    <input type="hidden" name="sid" value="@Model.sid" />
+     <label>Name</label><br />
+    <input type="text" name="sname" value="" /><br />
+    <label>Address</label><br />
+    <input type="text" name="saddress" value="" /><br />
+    <label>Contact</label><br />
+    <input type="tel" name="contact" value="" /><br />
+
+    <input type="submit" name="submit" class="btn btn-success" value="Submit" /><br />
+}
