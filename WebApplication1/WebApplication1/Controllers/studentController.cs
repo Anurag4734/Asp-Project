@@ -48,13 +48,17 @@ namespace WebApplication1.Controllers
         public ActionResult Delete(int id)
         {
             student student = db.students.Find(id);
-            return View(student);
+            db.students.Remove(student);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+            //return View(student);
         }
 
         public ActionResult DeleteData(student student)
         {
             student delete = db.students.Find(student.sid);
             db.students.Remove(delete);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 
